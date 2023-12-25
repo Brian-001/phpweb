@@ -15,6 +15,31 @@
 #### Organise "HTML like" files in a folder let's say <b>views</b>
 #### All these ensures there is minimal duplication and you stick into <b>DRY Principle</b>
 
+## PDO (PHP Data Objects)
+> <b>PDO</b> is a database access layer providing a uniform method to access multiple databases. 
+### Key Features of PDO
+#### <b>Database Independence:</b> PDO provides a uniform API for accessing various database management systems, such as MySQL, PostgreSQL, SQLite, and more. This means you can switch between different databases without changing your code significantly.<br>
+#### <b>Prepared Statements:</b> PDO supports prepared statements, which helps prevent SQL injection attacks. Prepared statements separate SQL code from user input, making it more secure.<br>
+#### <b>Error Handling:</b> PDO provides consistent error handling through exception handling. This allows you to catch database-related errors using try-catch blocks, making it easier to handle exceptions in your code.<br>
+#### <b>Transaction Support: </b>PDO supports database transactions, which allows you to group multiple SQL statements into a single transaction. This ensures that either all the statements are executed, or none of them are, providing data integrity.
+
+#### Example of a PDO code to connect mySQL database
+
+        <?php
+            try {
+                $pdo = new PDO("mysql:host=localhost dbname=mydatabase", "username", "password");
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                // Perform database operations here
+
+            } catch (PDOException $e) {
+                echo "Connection failed: " . $e->getMessage();
+            }
+        ?>
+
+
+
+
 
 
 
