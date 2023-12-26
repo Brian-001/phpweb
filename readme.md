@@ -36,8 +36,25 @@
                 echo "Connection failed: " . $e->getMessage();
             }
         ?>
+#### PDO provides a clean and consistent way to interact with database in PHP, making it a preferred choice for developers.
 
+## DSN (Data Source Name)
+#### In PHP DSN is a string that contains the information required to connect a database. <br>
 
+#### DSN contains details such as database driver, host, database name, and other connection parameters. DSNs are commonly used when establishing a connection to a database using database-related extensions, such as PDO (PHP Data Objects).
+
+#### Here is an example of a DSN for connecting to a MySQL database using PDO
+
+``` $dsn = "mysql:host=localhost;dbname=mydatabase"; ```
+
+#### When establishing a database connection using PDO or another database extension, you would pass the DSN as an argument to the connection function or constructor. For example:
+
+        try {
+            $pdo = new PDO($dsn, $username, $password);
+            // Perform database operations here
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
 
 
 

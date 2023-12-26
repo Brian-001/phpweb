@@ -4,20 +4,14 @@ require "functions.php";
 
 // require "router.php";
 
-class Person
-{
-    public $name;
-    public $age;
+$dsn = "mysql:host=localhost;port=3306;dbname=phpweb;charset=utf8mb4";
 
-    public function breathe()
-    {
-        echo $this->name . ' is breathing';
-    }
-}
+$pdo = new PDO($dsn);
 
-$person = new Person();
+$statement = $pdo->prepare("select * from posts");
 
-$person->name = 'John Doe';
-$person->age = 25;
+$statement->execute();
 
-$person->breathe();
+$posts = $statement->fetchAll();
+
+dd($posts);
