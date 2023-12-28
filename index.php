@@ -4,14 +4,31 @@ require "functions.php";
 
 // require "router.php";
 
-$dsn = "mysql:host=localhost;port=3306;dbname=phpweb;charset=utf8mb4";
+//Make a class
 
-$pdo = new PDO($dsn);
+class Database
+{
+    public function query($query)
+    {
+        $dsn = "mysql:host=localhost;port=3306;dbname=phpweb; user=abstract-programmer; password=Developer254@; charset=utf8mb4";
 
-$statement = $pdo->prepare("select * from posts");
+        $pdo = new PDO($dsn);
 
-$statement->execute();
+        $statement = $pdo->prepare("select * from posts where id > 1");
 
-$posts = $statement->fetchAll();
+        $statement->execute();
 
-dd($posts);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+}
+
+$db = new Database();
+$posts = $db->query($query);
+
+
+
+foreach ($posts as $post){
+
+    echo "<li>" . $post['title'] . "</li>";
+}

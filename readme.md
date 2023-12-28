@@ -55,6 +55,38 @@
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
+#### The following line of code provides the results as an associative array rather than indexed hence removes duplication of results.
+
+``` $osts = $tatement->fetchAll(PDO::FETCH_ASSOC)```
+
+<br>
+
+## Best naming conventions for PHP Class
+#### <b>PascalCase or StudlyCaps </b> <br>
+>Class names should be in PascalCase, also known as StudlyCaps
+>Start each word with a capital letter, without underscores or dashes
+>Example: ``` MyClass, DatabaseConnection, UserModel ```
+#### ii. Namespace Prefix
+>If your project uses namespaces (which is a good practice), include a namespace prefix that corresponds to the project or vendor
+> Example: ```namespace MyProject; class MyClass { /*...*/ } ```
+
+#### iii. Singular Noun
+>Use a singular noun for class names to represent a single instance of the concept the class represents.
+>Example: ``` Car, User, Post. ```
+
+#### iv. Descriptive and Clear
+>Choose a name that clearly describes the purpose or responsibility of the class.
+>Avoid overly abbreviated or unclear names
+>Example: ``` HttpRequestHandler ``` instead of ```HttpRH ```,  ``` UserProfile ``` instead of ``` UserProf  ```
+
+#### v. Avoid Acronyms
+>Minimize the use of acronyms, and if used, capitalize them consistently
+>Example: ``` XmlParser ``` instead of ``` XMLParser ```, ``` HttpConnector ``` instead of ``` HTTPConnector ```
+
+#### vi. Avoid Underscores
+>Avoid using underscores in class names. Use PascalCase instead.
+>Example: ```MyClass``` instead of ```My_Class ```, ```DatabaseConnection``` instead of ```Database_Connection```
+
 
 
 
