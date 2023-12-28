@@ -62,10 +62,11 @@
 <br>
 
 ## Best naming conventions for PHP Class
-#### <b>PascalCase or StudlyCaps </b> <br>
+#### i. PascalCase or StudlyCaps 
 >Class names should be in PascalCase, also known as StudlyCaps
 >Start each word with a capital letter, without underscores or dashes
 >Example: ``` MyClass, DatabaseConnection, UserModel ```
+>A file that only contain a class should have its' name in PascalCase ie ``` Database.php ```
 #### ii. Namespace Prefix
 >If your project uses namespaces (which is a good practice), include a namespace prefix that corresponds to the project or vendor
 > Example: ```namespace MyProject; class MyClass { /*...*/ } ```
@@ -86,6 +87,39 @@
 #### vi. Avoid Underscores
 >Avoid using underscores in class names. Use PascalCase instead.
 >Example: ```MyClass``` instead of ```My_Class ```, ```DatabaseConnection``` instead of ```Database_Connection```
+
+## Scope Resolution Operator ( :: )
+#### Scope resolution operator is used to access static methods or constants, as well as overridden properties or methods in a class. It allows you to access elements of a class without creating an instance of that class.
+
+#### For example, if you have a static method or constant in a class, you can access it using the scope resolution operator:
+
+        class MyClass {
+            const MY_CONSTANT = 10;
+
+            public static function myStaticMethod() {
+                return "Static method called.";
+            }
+        }
+
+        // Accessing a constant
+        echo MyClass::MY_CONSTANT; // Output: 10
+
+        // Calling a static method
+        echo MyClass::myStaticMethod(); // Output: Static method called.
+
+####  ```PDO::FETCH_ASSOC ``` in the context of PHP's PDO (PHP Data Objects) extension, it is used as part of the fetch method to specify the fetch style. ``` PDO::FETCH_ASSOC ``` is one of the fetch styles available in PDO and is used to fetch a row as an associative array.
+
+#### Here's an example of using ``` PDO::FETCH_ASSOC ``` with PDO
+
+    // Assuming you have a PDO connection $pdo
+
+    $query = $pdo->prepare("SELECT column1, column2 FROM my_table");
+    $query->execute();
+
+    // Fetch a row as an associative array
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+
+    print_r($result);
 
 
 
