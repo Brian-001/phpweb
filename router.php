@@ -8,12 +8,13 @@ $routes = [
     '/' => "controllers/index.php",
     '/about' => "controllers/about.php",
     '/notes' => "controllers/notes.php",
+    '/note' => 'controllers/note.php',
     '/contact' => "controllers/contact.php",
 ];
 
 
 //Function to handle routing
-function routeToController($routes, $uri){
+function routeToController($uri, $routes){
     if (array_key_exists($uri, $routes))
     {
         require $routes[$uri];
@@ -33,4 +34,4 @@ function abort($code = 404){
     die();
 }
 
-routeToController($routes, $uri);
+routeToController($uri, $routes);
