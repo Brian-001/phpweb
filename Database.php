@@ -5,19 +5,23 @@ class Database
     //Define a property and make it public in order to access it in any class
     public $connection;
 
-    public function __construct(){
+    public function __construct($config, $user = 'abstract-programmer', $password = 'Developer254@'){
 
-        $dsn = "mysql:host=localhost;port=3306;dbname=phpweb;charset=utf8mb4";
 
-        $this->connection = new PDO($dsn,'abstract-programmer', 'Developer254@', []);
+        $dsn = 'mysql:' . http_build_query($config, '', ';'); //example.com?=foo=bar
+
+        $this->connection = new PDO($dsn, $user, $password, [
+
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC 
+        ]);
     }
 
-    public function query($query)
+    public function query($query, $params = [])
     {
         
         $statement = $this->connection->prepare($query);
 
-        $statement->execute();
+        $statement->execute($params);
 
         return $statement;
 

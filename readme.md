@@ -121,6 +121,20 @@
 
     print_r($result);
 
+#### In this example, the fetch method is used to retrieve a single row from the result set. ``` PDO::FETCH_ASSOC ``` specifies that the row should be fetched as an associative array where column names are used as keys. The fetched result will look like an associative array:
+
+        Array (
+            "column1" => "value1",
+            "column2" => "value2"
+        )
+#### Other fetch styles include ``` PDO::FETCH_OBJ ``` for fetching as objects and ``` PDO::FETCH_NUM ``` for fetching as a numerically indexed array, among others. The choice of fetch style depends on the desired format of the fetched data.
+
+### SQL Injection
+
+#### Never inline user data into a query string for instance: ```$query = "select * from posts where id = {$id}"; ``` Instead use, ``` $query = "select * form posts where id = ?"``` 
+
+
+
 
 
 
